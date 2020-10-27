@@ -61,7 +61,7 @@ Serão dadas nesse capítulo algumas definições de Teoria dos Grafos.
 & Caminho simples: caminho onde todos os vértices de $v_1$ a $v_k$ são diferentes.
 & Trajeto: caminho onde todas as arestas são distintas.
 & Ciclo: é um caminho $v_1, \dots, v_{k+1}$ em que $v_1 = v_{k+1}$ e $k \geq 3$.
-& Ciclo simples: é um ciclo que contém um caminho simples.
+& Ciclo simples: é um ciclo onde todos os vértices são diferentes, exceto o primeiro e o último.
 & Grafo acíclico: é um grafo que não possui ciclos simples.
 & Ciclos idênticos: ciclos obtidos um do outro por uma rotação de seus vértices.
 & Caminho Hamiltoniano: caminho que contém cada vértice do grafo exatamente uma vez.
@@ -89,29 +89,34 @@ Serão dadas nesse capítulo algumas definições de Teoria dos Grafos.
 \end{figure}
 
 
+& Grafo conexo: grafo onde, entre cada par de vértices, existe um caminho.
+& Grafo desconexo: grafo que não é conexo. Em outras palavras, grafo em que existe algum par de vértices entre os quais não existe caminho.
+& Grafo totalmente desconexo: grafo que não possui arestas.
+& Subconjunto maximal em relação à propriedade $P$: seja $S$ um conjunto e $S' \subseteq S$, $S'$ é dito maximal em relação à propriedade $P$ quando $S'$ satisfaz $P$ e não existe subconjunto $S'' \supset S$ que satisfaça $P$.
+& Componente conexo: subgrafo de um grafo $G$ maximal com relação à conectividade.
+& Subconjunto minimal em relação à propriedade $P$: definido de forma análoga ao subconjunto maximal.
+& Distância entre dois vértices $v$ e $w$: denotada por $d(v, w)$ é o comprimento do menor caminho entre $v$ e $w$.
+
+% Página 3
+
+& Subtração e adição de vértices e arestas: seja $G(V, E)$ um grafo.
+&& Seja $e \in E$ uma aresta, denota-se por $G - e$ o grafo obtido de $G$ pela exclusão da aresta $e$.
+&& Seja $(v, w)$ um par de vértices não adjacentes de $G$, denota-se por $G + (v, w)$ o grafo obtido de $G$ adicionando-se a aresta $(v, w)$.
+&& Seja $v \in V$ um vértice, denota-se por $G - v$ o grafo obtido da remoção do vértice $v$ e de dotas as arestas nele incidentes.
+&& Seja $v \notin V$ um vértice, denota-se por $G + v$ o grafo obtido de $G$ adicionando-se o vértice $v$.
+
+& Teorema 2.1: Un grafo conexo $G$ possui ciclo Euleriano sse todo vértice de $G$ possui grau par.
+&& $\Rightarrow$ Seja $C$ um ciclo Euleriano de $G$. Para cada ocorrência de um vértice $v$ em $C$, somamos 2 a seu grau pelo fato de uma ocorrência corresponder a uma aresta de entrada e uma de saída. Portanto, todo vértice de $G$ possui grau par.
+&& $\Leftarrow$ Assuma que todos os vértices de $G$ têm grau par. Começamos de um vértice arbitrário $v$ e percorremos um ciclo começando e terminando em $v$, sem repetir arestas. Se todas as arestas foram visitadas, então $G$ é Euleriano. Se não, removemos de $G$ as arestas pertencentes a $C$ e vértices isolados após a remoção, ficando com o grafo $G'$. Todos os vértices de $G'$ têm grau par. Partimos então de algum vértice $u \in G'$ pertencente ao ciclo $C$ e percorremos outro ciclo. O processo é repetido até que o grafo fique vazio. Um ciclo Euleriano pode ser obtido da concatenação de todos os ciclos encontrados. Portanto, $G$ possui ciclo Euleriano.
+
+& Grafo completo: é um grafo que possui uma aresta entre cada par de seus vértices. É denotado por $K_n$, onde $n = |V|$. Possui ${n}\choose{2}$ arestas.
+& Complemento de um grafo $G(V, E)$: é o grafo $\bar{G}$ que também possui $V$ como conjunto de vértices e possui como conjunto de arestas $V^2 - E$, onde $V^2$ denota o conjunto de todos os pares não ordenados de elementos distintos de $V$.
+& Grafo bipartido: um grafo $G(V, E)$ é bipartido quando seu conjunto de vértices pode ser particionado em dois conjuntos $V_1$ e $V_2$, tais que toda aresta incide em um vértice de $V_1$ e em um vértice de $V_2$.
+& Grafo bipartido completo: possui uma aresta para par de vértices $(v_1, v_2)$, onde $v_1 \in V_1$ e $v_2 \in V_2$. É denotado por $K_{n_1, n_2}$, onde $n_1 = |V_1|$ e $n_2 = |V_2|$. Possui $n_1 \times n_2$ arestas.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 \end{easylist}
 
 
