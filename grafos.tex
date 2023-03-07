@@ -47,6 +47,14 @@ Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )
 % ddantas, 31/03/2020
 \usepackage{subcaption}
 
+% Adicionado para permitir a inserção de links para URLs
+% ddantas, 24/11/2020
+\usepackage{hyperref}
+
+% Adicionado para permitir a inserção de algoritmos
+% ddantas, 19/01/2021
+\usepackage[ruled,vlined]{algorithm2e}
+
 %formatacao
 
 \newcommand{\TAB}{{\hspace*{1cm}}}
@@ -125,6 +133,12 @@ Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )
 \newcommand{\DFT}{\mathfrak{F}}
 \newcommand{\IFT}{\mathfrak{F}^{-1}}
 
+% Grafos
+
+\newcommand{\QED}{\blacksquare}
+\newcommand{\SKIP}{\vspace{0.5cm}}
+\newcommand{\EXERCICIOS}{\SKIP {\bf Exercícios}}
+
 
 %renewcommand
 
@@ -163,10 +177,10 @@ Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Capítulo: Image enhancement
+%Capítulo: Técnicas básicas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\input{03_enhancement.tex}
+\input{03_tecnicas.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
