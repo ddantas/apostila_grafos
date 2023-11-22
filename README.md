@@ -1,8 +1,8 @@
-# Apostila de Processamento de Imagens e Visão Computacional
+# Apostila de Grafos e Algoritmos Computacionais
 
 ## Introdução
 
-Notas de aula baseadas no livro *Digital Image Processing* de Rafael C. GONZALES, terceira edição
+Notas de aula baseadas no livro *Grafos e Algoritmos Computacionais* de Jayme Luiz Szwarcfiter, segunda edição
 
 ## Geração do PDF
 
