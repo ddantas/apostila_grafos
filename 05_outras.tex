@@ -1,0 +1,145 @@
+\chapter{Outras técnicas}
+
+Capítulo 5 de Szwarcfiter, \textit{Grafos e Algoritmos Computacionais}~\cite{Szwarcfiter1986grafos}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+
+Serão vistos neste capítulo alguns algoritmos em grafos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Árvore geradora mínima}
+
+\begin{easylist}
+
+  & Grafo ponderado: é um grafo que possui uma função relacionando o conjunto de vértices ou de arestas a algum valor numérico, conhecido como peso ou custo.
+
+  & Árvore geradora mínima (AGM): seja $G(V, E)$ um grafo conexo em que cada aresta possui um peso, o problema da árvore geradora mínima consiste em encontrar uma árvore que conecte todos os vértices de $V$ cuja soa dos pesos é a menor possível.
+
+  && Algoritmo de Kruskal: usa \textit{union-find trees} com \textit{path compression} e \textit{union by rank}.
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{grafo conexo $G(V, E)$ com função de custo associada às arestas}
+
+  ordenar as arestas por ordem não decrescente de custo;
+
+  associar cada vértice a um conjunto distinto;
+
+  \For{$e \in E$ \textnormal{em ordem não decrescente de peso}}
+  {
+    \If{$e$ \textnormal{liga vértices de conjuntos diferentes}}
+    {
+      unir os dois conjuntos;
+      
+      marcar $e$ como parte da AGM;
+    }
+  }
+  \caption{Algoritmo de Kruskal}
+\end{algorithm}
+%%%%%%%%%%%%%%%%%%%%
+
+  && Algoritmo de Prim: usa uma fila de prioridades implementada com \textit{heap}.
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{grafo conexo $G(V, E)$ com função de custo associada às arestas}
+
+  inicializar $V_2 = {x}$ onde $x$ é um vértice arbitrário;
+
+  inicializar $E_2 = {}$;
+
+  \While{$V_2 \neq V$}
+  {
+    escolher aresta $(u, v)$ tal que $u \in V_2$ e $v \in V$ cujo peso seja mínimo;
+
+    adicionar $v$ a $V_2$ e $(u, v)$ a $E_2$;
+  }
+
+  Retornar $G_2(V_2, E_2)$, que representa a AGM;
+  \caption{Algoritmo de Prim}
+\end{algorithm}
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Menor distância em grafos}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{grafo $G(V, E)$, origem $s$}
+  \SetKwProg{Def}{def}{:}{end}
+  \Def{$Inicializa(G, s)$}
+  {
+    \For{$w \in \operatorname{adjacencia}(x)$}
+    {
+      dist($v$) = 0;
+
+      pai($v$) = NULL;
+    }
+    dist($s$) = 0;
+  }
+
+  \Def{$Relax(u, v)$}
+  {
+    \If{\textnormal{dist($v$) $>$ dist($u$) + peso(($u$, $v$))}}
+    { 
+      dist($v$) = dist($u$) + peso(($u$, $v$))
+    }
+    pai($v$) = $u$
+  }
+  
+  \Def{$Dijkstra(G, s)$}
+  {
+    \textit{Inicializa(G, s)}
+
+    $Q = V$            /* Inserir todos os vértices em fila de prioridade. */
+    
+    \hspace{1cm}       /* Prioridade maior quanto menor o peso. */
+
+    \While{fila $Q$ não vazia}
+    {
+      u = desenfileira(Q) /* Vértice mais próximo a $s$ */
+
+      \For{$v \in \operatorname{adjacencia}(u)$}
+      {
+        \textit{Relax(u, v)}
+      }
+    }
+  }
+  \caption{Algoritmo de Dijkstra}
+\end{algorithm}
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{easylist}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Busca em árvores}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Busca em grafos}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Exercícios}
+
+%\begin{enumerate}
+%  \item 
+%    \begin{enumerate}
+%      \item 
+%      \item 
+%    \end{enumerate}
+%  \item 
+%  \item 
+%\end{enumerate}
+

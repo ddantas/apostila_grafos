@@ -306,6 +306,20 @@ r_{ij} & = 0 \mbox{ caso contrário }
   \end{bmatrix}
 \]
 
+\begin{figure}[h!]
+  \begin{center}
+    \begin{tabular}{c}
+      \includegraphics[width=0.3\textwidth]{images/02/graph01.eps}
+    \end{tabular}
+  \end{center}
+  \caption*{\label{fig:ex:01} Grafo $G_1$.}
+\end{figure}
+
+\SKIP
+\SKIP
+\SKIP
+\SKIP
+
 \begin{easylist}
   & Matriz de incidências: dado um grafo $G(V, E)$, a matriz de incidências $B = \{b_{ij}\}$ é uma matriz $|V| \times |E|$ tal que
 \end{easylist}
@@ -318,7 +332,7 @@ b_{ij} & = 0 \mbox{ caso contrário }
   \end{equation*}
 
 \begin{easylist}
-  && Considere o grafo $G_1$ abaixo. Considere ainda que os índices $j$ de 1 a 7 correspondem às arestas (1, 2), (1, 5), (1, 6), (2, 3), (2, 5), (2, 6) e (3, 5) nessa ordem. Sua representação através de uma matriz de incidências seria a seguinte:
+  && Considere o mesmo grafo $G_1$ mostrado acima. Considere ainda que os índices $j$ de 1 a 7 correspondem às arestas (1, 2), (1, 5), (1, 6), (2, 3), (2, 5), (2, 6) e (3, 5) nessa ordem. Sua representação através de uma matriz de incidências seria a seguinte:
 \end{easylist}
 
 \[
@@ -332,14 +346,26 @@ b_{ij} & = 0 \mbox{ caso contrário }
   \end{bmatrix}
 \]
 
+\begin{easylist}
+  & Estrutura de adjacências: dado um grafo $G(V, E)$, a estrutura de adjacências $S$ de $G$ é um conjunto de $|V|$ listas $L(v)$, uma para cada $v \in V$. Cada lista $L(v)$ é denominada lista de adjacências de $v$ e contém os vértices $w$ adjacentes a $v$ em $G$.
+\end{easylist}
+
+\begin{easylist}
+  && A Figura~\ref{fig:struct} abaixo mostra um exemplo de grafo e a estrutura de adjacências correspondente.
+\end{easylist}
+
 \begin{figure}[h!]
   \begin{center}
     \begin{tabular}{c}
-      \includegraphics[width=0.3\textwidth]{images/02/graph01.eps}
+      \includegraphics[width=0.8\textwidth]{images/02/struct.png}
     \end{tabular}
   \end{center}
-  \caption*{\label{fig:ex:01} Grafo $G_1$.}
+  \caption{Estrutura de adjacências.}
+  \label{fig:struct}
+  \source{Szwarcfiter~\cite{Szwarcfiter1986grafos}.}
 \end{figure}
+
+
 
 % Página 7
 
@@ -348,7 +374,7 @@ b_{ij} & = 0 \mbox{ caso contrário }
 \label{sec:digraph}
 
 \begin{easylist}
-  & Grafo dirigido ou digrafo: $G(V,E)$ é um conjunto finito não vazio $V$ e um conjunto $E$ de pares ordenados de elementos de $V$. Portanto, em um digrafo, uma aresta $(v, w)$ possui uma única direção, de $v$ para $w$. Diz-se também que $(v, w)$ é divergente de $v$ e convergente a $w$. Caminhos e ciclos em um digrafo devem obedecer ao direcionamento das arestas. É possível haver ciclos de comprimento 2 quando $(v, w)$ e $(w, v)$ pertencem a $E$ simultaneamente.
+  & Grafo dirigido ou digrafo: $G(V,E)$ é um conjunto finito não vazio $V$ e um conjunto $E$ de pares ordenados de elementos distintos de $V$. Portanto, em um digrafo, uma aresta $(v, w)$ possui uma única direção, de $v$ para $w$. Diz-se também que $(v, w)$ é divergente de $v$ e convergente a $w$. Caminhos e ciclos em um digrafo devem obedecer ao direcionamento das arestas. É possível haver ciclos de comprimento 2 quando $(v, w)$ e $(w, v)$ pertencem a $E$ simultaneamente.
   & Grafo subjacente: é uma versão não dirigida de $D(V, E)$, ou seja, o grafo obtido trocando-se os pares ordenados $(v, w)$ de $E$ por pares não ordenados.
   & Grau de entrada: número de arestas convergentes a $v$. Uma fonte é um vértice com grau de entrada nulo.
   & Grau de saída: número de arestas divergentes de $v$. Um sumidouro é um vértice com grau de saída nulo.
