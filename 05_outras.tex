@@ -14,7 +14,7 @@ Serão vistos neste capítulo alguns algoritmos em grafos.
 
   & Grafo ponderado: é um grafo que possui uma função relacionando o conjunto de vértices ou de arestas a algum valor numérico, conhecido como peso ou custo.
 
-  & Árvore geradora mínima (AGM): seja $G(V, E)$ um grafo conexo em que cada aresta possui um peso, o problema da árvore geradora mínima consiste em encontrar uma árvore que conecte todos os vértices de $V$ cuja soa dos pesos é a menor possível.
+  & Árvore geradora mínima (AGM): seja $G(V, E)$ um grafo conexo em que cada aresta possui um peso, o problema da árvore geradora mínima consiste em encontrar uma árvore que conecte todos os vértices de $V$ cuja soma dos pesos é a menor possível.
 
   && Algoritmo de Kruskal: usa \textit{union-find trees} com \textit{path compression} e \textit{union by rank}.
 
@@ -47,13 +47,13 @@ Serão vistos neste capítulo alguns algoritmos em grafos.
 \SetAlgoLined
 \KwData{grafo conexo $G(V, E)$ com função de custo associada às arestas}
 
-  inicializar $V_2 = {x}$ onde $x$ é um vértice arbitrário;
+  inicializar $V_2 = \{x\}$ onde $x$ é um vértice arbitrário;
 
-  inicializar $E_2 = {}$;
+  inicializar $E_2 = \{\}$;
 
   \While{$V_2 \neq V$}
   {
-    escolher aresta $(u, v)$ tal que $u \in V_2$ e $v \in V$ cujo peso seja mínimo;
+    escolher aresta $(u, v)$ tal que $u \in V_2$ e $v \notin V_2$ cujo peso seja mínimo;
 
     adicionar $v$ a $V_2$ e $(u, v)$ a $E_2$;
   }
@@ -76,9 +76,9 @@ Serão vistos neste capítulo alguns algoritmos em grafos.
   \SetKwProg{Def}{def}{:}{end}
   \Def{$Inicializa(G, s)$}
   {
-    \For{$w \in \operatorname{adjacencia}(x)$}
+    \For{$w \in V$}
     {
-      dist($v$) = 0;
+      dist($v$) = $\infty$;
 
       pai($v$) = NULL;
     }
@@ -89,9 +89,10 @@ Serão vistos neste capítulo alguns algoritmos em grafos.
   {
     \If{\textnormal{dist($v$) $>$ dist($u$) + peso(($u$, $v$))}}
     { 
-      dist($v$) = dist($u$) + peso(($u$, $v$))
+      dist($v$) = dist($u$) + peso(($u$, $v$));
+
+      pai($v$) = $u$;
     }
-    pai($v$) = $u$
   }
   
   \Def{$Dijkstra(G, s)$}
